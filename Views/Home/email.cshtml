@@ -1,0 +1,65 @@
+﻿@model email_app.Models.EmailData
+
+@{
+    ViewBag.Title = "email";
+}
+
+<!DOCTYPE html>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+@*<div>
+        <form action="~/Home/email">
+            <label for="mServer">Mail Server:</label><br>
+            <input type="text" id="mServer" name="mServer"  ><br>
+            <label for="mUsername">Mail Username:</label><br>
+            <input type="text" id="mUsername" name="mUsername" value=""><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>*@
+<div>
+    <br />
+</div>
+
+@using (Html.BeginForm("SendEmail", "Home", FormMethod.Post))
+{
+    @*@Html.TextBoxFor(model => model.MailServer)
+        @Html.ValidationMessageFor(model => model.MailServer)
+        <button type="submit">Subscribe</button>*@
+    <label for="MailServer">Mail Server:</label>
+    <br>
+    <input type="text" name="MailServer" id="MailServer" />
+    <br>
+    <label for="MailUsername">Mail Username:</label>
+    <br>
+    <input type="text" id="MailUsername" name="MailUsername">
+    <br>
+    <label for="MailPassword">Mail Password:</label>
+    <br>
+    <input type="text" name="MailPassword" id="MailPassword" />
+    <br>
+    <label for="MailFrom">Mail From:</label>
+    <br>
+    <input type="email" name="MailFrom" id="MailFrom" />
+    <br>
+    <label for="Recipients">Recipients:</label>
+    <br>
+    <input type="email" name="Recipients" id="Recipients" />
+    <br>
+    <label for="MailPort">Mail Port:</label>
+    <br>
+    <input type="number" name="MailPort" id="MailPort" />
+    <br>
+    <label for="MailSSL">Mail SSL:</label>
+    <br>
+    <select id="MailSSL" name="MailSSL">
+        <option value="True">True</option>
+        <option value="False">False</option>
+    </select>
+    <br>
+    <br>
+
+    <input type="submit" value="Send" />
+}
+
+
+
