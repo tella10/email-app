@@ -1,6 +1,8 @@
 ﻿using email_app.Models;
 using System.Net;
 using System.Net.Mail;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Mvc;
 
 namespace email_app.Controllers
@@ -37,6 +39,14 @@ namespace email_app.Controllers
 					//mail.Bcc.Add("maskitq@yahoo.com");
 					//mail.CC.Add("uanusionwu@medismarts.com.ng");
 				}
+
+				// Not recommended in production. Code to bypass security check
+				//ServicePointManager.ServerCertificateValidationCallback =
+				//delegate (object s, X509Certificate certificate, X509Chain chain,
+				//SslPolicyErrors sslPolicyErrors)
+				//{ 
+				//	return true;
+				//};
 
 				client.Send(mail);
 				return "success";
